@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
-const movieRoutes = require('./routes/movieRoutes')
+const movieRoutes = require('./routes/MovieRoutes')
+const config = require('./config/config')
 
 dotenv.config()
 const app = express()
@@ -42,7 +43,6 @@ app.use((err, req, res, next) => {
 })
 
 // Start server
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+app.listen(config.port, () => {
+    console.log(`Server is running on port ${config.port}`)
 })
